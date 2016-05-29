@@ -1,0 +1,47 @@
+<style>
+
+
+.node circle {
+  fill: #fff;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+
+.node {
+  font: 10px sans-serif;
+}
+
+.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 1.5px;
+}
+
+	body{font-family: Arial, sans-serif;font-size:10px;}
+	.axis path,.axis line {fill: none;stroke:#b6b6b6;shape-rendering: crispEdges;}
+	/*.tick line{fill:none;stroke:none;}*/
+	.tick text{fill:#999;}
+	g.journal.active{cursor:pointer;}
+	text.label{font-size:12px;font-weight:bold;cursor:pointer;}
+	text.value{font-size:12px;font-weight:bold;}
+</style>
+
+<div id="wrapper">
+		<div class="container">
+			<div class="input-group">
+				<span class="input-group-addon" id="basic-addon1">Search for a high energy physicist: </span>
+				<input type="text" id="search" class="form-control" placeholder="e.g find a Manuel Lara" value="find a Manuel Lara" aria-describedby="author-name">
+			</div>
+			<div class = "error-section"></div>
+			<div id="progress" class="lead hide">
+				<i class="fa fa-spinner"></i><span> Getting records...0 so far</span>
+			</div>
+		</div>
+	</div>
+	<!-- footer !-->
+</div>
+
+
+
+
+<script src="/js/index.js"></script>

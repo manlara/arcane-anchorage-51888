@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+
+		<title><%if(!req.metatag){%>Author Name Disambiguation<%}else{%><%-req.metatag.title%><%}%></title>
+
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="robots" content="index, follow" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no" />
+		<meta name="mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="language" content="en" />
+		<meta name="msvalidate.01" content="" />
+
+		<link rel="icon" type="image/png" href="/favicon.png"/>
+		<link href='//fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' type='text/css'>
+
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		
+		<link rel="stylesheet" href="/styles/global.css">
+		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" type="text/css" rel="stylesheet" />
+
+		<link rel="stylesheet" href="/styles/jquery-ui.css">
+		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/dc/1.7.5/dc.css">
+
+
+		
+		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+		<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+		
+
+	</head>
+<body>
+
+	<script>
+		var ejsObj = {
+			_csrf : '<%- _CSRF %>'
+		}
+	</script> 
+	
+	<script src="/js/protos.js"></script> 
+	<!--<script data-main="/js/app" src="/js/libs/RequireJs/require_js.min.js"></script>-->
+
+
+	<%- body %>
+
+
+	<script>
+		$(function () {
+			$('[data-toggle="tooltip"]').tooltip()
+		})
+	</script>
+
+
+	
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.12/crossfilter.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/dc/1.7.5/dc.min.js"></script>
+
+
+
+
+
+
+	</body>
+</html>

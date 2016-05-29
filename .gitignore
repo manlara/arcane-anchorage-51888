@@ -1,0 +1,15 @@
+node_modules
+
+config/environment.js
+config/local.js
+
+.tmp/js
+data/cache/*.json
+
+
+.tmp/images
+.tmp/styles
+.tmp/favicon.png
+.tmp/robots.txt
+.tmp/templates
+.tmp/fonts
