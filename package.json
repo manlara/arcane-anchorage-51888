@@ -4,7 +4,7 @@
   "description": "lightweight-node-framework",
   "main": "index.js",
   "scripts": {
-    "start": "bash deploy.sh"
+    "start": "node app.js"
   },
   "author": "Lara",
   "license": "MIT",
