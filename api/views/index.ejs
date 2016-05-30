@@ -6,6 +6,10 @@
   stroke: steelblue;
   stroke-width: 1.5px;
 }
+p{
+	font-size: 18px;
+	text-indent: 50px;
+}
 
 .node {
   font: 10px sans-serif;
@@ -28,14 +32,73 @@
 
 <div id="wrapper">
 		<div class="container">
-			<div class="input-group">
-				<span class="input-group-addon" id="basic-addon1">Search for a high energy physicist: </span>
-				<input type="text" id="search" class="form-control" placeholder="e.g find a Manuel Lara" value="find a Manuel Lara" aria-describedby="author-name">
-			</div>
-			<div class = "error-section"></div>
-			<div id="progress" class="lead hide">
-				<i class="fa fa-spinner"></i><span> Getting records...0 so far</span>
-			</div>
+		
+			<h1>Development History</h1>
+			
+			<section>
+				<h2 class="lead"><u>Intro</u></h2>
+				<p class="paragraph">
+					My time as a graduate included more than just the standard measurement of a new physics process, it also included a substantial amount of hardware and software work that I wanted to summarize so I created this page. In addition to being a researcher, which included reading scholary articles in the field and writing up code to manage the detector I helped build, I also code modern web applications that use NodeJS. This website, for instance, was developed by me in <a target="_blank" href="https://nodejs.org/en/">NodeJS</a> and uses some awesome tools like <a target="_blank" href="https://webpack.github.io/">webpack</a> and <a target="_blank" href="http://gruntjs.com/">Grunt</a> to compile the code into clean javascript and CSS. I also use <a href="http://requirejs.org/">RequireJS</a> to improve the speed and quality of my JS code. Take a look at the underlying code on my <a target="_blank" href="https://github.com/manlara/arcane-anchorage-51888" target="_blank">GitHub page.</a>
+				</p>
+			</section>
+			
+			<section>
+				<h2 class="lead"><u>A little project visualizing <a target="_blank" href="http://inspirehep.net/">INSPIRE</a> data</u></h2>
+				<p>
+					I wanted to present a fun visualization project. An indispensable resource for a high energy physicist is INSPIRE HEP which is a <a target="_blank" href="http://inspirehep.net/info/general/project/index">"next-generation High Energy Physics (HEP) information system"</a>. Through INSPIRE a wealth or research papers and their authors, citations, d.o.i, and more are quickly available. They offer a simple API that can be used to query their database. What I have done is create a search bar (bottom of this section) that can be used to query INSPIRE. A simple example would be by author name like me, Manuel Lara, which will respond with a number of papers for that author. Those papers are then counted by collaboration and year and graphed with <a target="_blank" href="https://d3js.org/">D3.JS</a>. To get better search results when searching by author you should start your query with 'find a'. <br><br>
+
+					You can also try to a search of my advisors: Matthew Shepherd or Ryan Mitchell. They were part of many more collaborations than me.<br>
+					Hover over a collaboration to see the number of papers in each category.
+				</p>
+				<div class="input-group">
+					<span class="input-group-addon" id="basic-addon1">Search for a high energy physicist: </span>
+					<input type="text" id="search" class="form-control" placeholder="e.g find a Manuel Lara" value="find a Manuel Lara" aria-describedby="author-name">
+				</div>
+				<div class = "error-section"></div>
+				<div id="progress" class="lead hide">
+					<i class="fa fa-spinner"></i><span> Getting records...0 so far</span>
+				</div>
+				
+				<div id="search-plot">
+					
+				</div>
+
+			</section>
+
+			<section>
+				<h2 class="lead"><u>Experience building a detector</u></h2>
+				<p>
+					From 2012 to 2015 I worked at <a target="_blank" href="https://www.jlab.org/">Thomas Jefferson National Accelerator Facility</a> (JLab). In that time I helped build the Forward Calorimeter or FCAL which is designed to measure the energy of particles that pass through lead glass blocks that are stacked in a circular array 59 rows high. Cherenkov light is radiated by the particle passing through the lead glass block and are collected on the other end by a photomultier tube or PMT. The Cherenkov light excites electrons in the PMT and by stacking metal plates at increasing voltage (as high at 2000 Volts) more electrons are generated. These devices are extremely sensitive to ambient light so it is critical that they operate in a totally dark enviornment. For this reason we built a darkroom to enclose our electronics after stacking each lead glass block assembly. 
+					<!--<img  class="img-responsive" src="https://www.jlab.org/sites/default/files/styles/homepage_slider/public/gluex_1.jpg?itok=Lo-EZbAN" alt="">!-->
+				</p>
+				
+				<h3 class="lead"><u>Time-lapse of detector construction</u></h3>
+				<p>
+					Below is a time-lapse covering over a year of the assembly process going on in the experimental hall at JLab. Inside the yellow frame in the bottom right corner of the video below is where the FCAL will reside. You can also see me sitting on the detector after having built half of it (<a target="_blank" href="/images/FCAL.jpg">I am on the left</a>).
+				</p>
+				<video style="width:500px;"  controls muted class="img-responsive">
+					<source src="https://halldweb.jlab.org/engineering/GlueX_Installation.mp4" type="video/mp4">
+				</video>
+
+				<h3 class="lead"><u>Code developed for the FCAL</u></h3>
+				<p>
+					Like any project our codebase started out small and quickly grew as we wanted to monitor and test more things. The two programming languages I used were Perl and C++, which are the most common languages used in high energy physics, though Python is quickly growing. Since I was the primary developer for most of the FCAL code I created a few GitHub repos for other colleagues to use.
+					<br><br>
+
+					With Perl I could communicate to a MySQL database maintained by JLab called JInventory. In the case of the FCAL, we have over 10,0000 hardware components that all need an associated maintenance history record and must also be mapped to a physical location around the lab. The Perl scripts can be found <a target="_blank" href="https://github.com/manlara/FCAL_Scripts">here.</a>
+					<br><br>
+
+					C++ is the primary language of choice in scientific compting for high energy physics and is the language I have the most years of experience with. As I touched on previously, this detector converts light into a charge distribution whose integral is proportional to energy. On the face of the detector is plexiglass with remotely controlled led lights at each corner. The plexiglass is darkened on both side but the side that touches the face of the detector is sanded so that led light will diffract approximately uniformly. This is known as a light monitoring system which allows us to test the response of the PMT with a known light energy (from the led). To test performance of the detector I collected data with the light monitoring system and analayzed timing variations in the pulse peak and integral. The C++ code that accomplishes this task can be found <a target="_blank" href="https://github.com/manlara/FCALPpPi">here.</a>
+				</p>
+			</section>
+			
+			<section>
+				<h2 class="lead"><u>Experience as a web developer</u></h2>
+				<p>
+					As I continued programming while at JLab I began to get interested in web technologies and was very impressed by the complexity of many modern web applications. I also liked that in web programming because it's code that I can share and code that can do something for anyone with an internet connection. I have worked in PHP expanding features in an email campaign system called <a target="_blank" href="https://sendy.co/">Sendy</a>. I have also worked on small projects like my best friends wedding page which includes a fun map of things to do in <a target="_blank" href="http://teamphamfini.com/#thingstodo">San Jose.</a> I am currently helping develop a NodeJS based web application called <a target="_blank" href="https://lawnmasters.com/">Lawnmasters.</a>
+				</p>
+			</section>
+
 		</div>
 	</div>
 	<!-- footer !-->

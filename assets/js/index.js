@@ -16,9 +16,10 @@ require(
 			var socket = io('http://localhost:1338');
 			socket.on('disconnect', function(){});
 
+			/*
 			var datasets = [{corporate_name: [{collaboration: "ALICE"}], number_of_authors: 100, publication_info: {pagination: "064905", title: "Phys.Rev.", volume: "C91", year: "2015"}, recid: 1335350},
 							{corporate_name: [{collaboration: "BESIII"}], number_of_authors: 100, publication_info: {pagination: "064905", title: "Phys.Rev.B", volume: "C91", year: "2016"}, recid: 1335310}]
-			
+			*/
 			// convert inspire response to array of arrays
 			// Each array is a unique collaboration
 			// For each collaboration we summarize the number publications per year
@@ -79,6 +80,18 @@ require(
 				var start_year = 2004,
 					end_year = 2016;
 
+				// Get start and end years
+				records.forEach(function(record){
+					record.forEach(function(item){
+						var year = item[0]
+						if (year<start_year) start_year = year
+						if (year>end_year) end_year = year
+					})
+				})
+
+				// update height
+				height = records.length*50
+
 				var c = d3.scale.category20();
 
 				var x = d3.scale.linear()
@@ -95,7 +108,7 @@ require(
 					.domain([start_year, end_year])
 					.range([0, width]);
 
-				var svg = d3.select("body").append("svg")
+				var svg = d3.select("#search-plot").append("svg")
 					.attr("width", width + margin.left + margin.right)
 					.attr("height", height + margin.top + margin.bottom)
 					.style("margin-left", margin.left + "px")

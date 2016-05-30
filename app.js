@@ -124,33 +124,7 @@ shell.exec(_$.environment.development ? ' echo In Developemnt ' : 'grunt --targe
 
     var policies = require('./lib/policies.js')
 
-    /**
-    * Other Setup
-    */
-    /*
-    var others = require('./lib/abstractions.js')
-    Object.keys(others).forEach(function(index){
-      global[index] = others[index]
-    })
-    */
-    /**
-    * Communication Setup
-    */
-    /*
-    var communication = require('./lib/communication.js')
-    Object.keys(communication).forEach(function(index){
-      global[index] = communication[index]
-    })
-    */
-    /**
-    * Jobs Setup
-    */
-    /*
-    var jobs = require('./lib/jobs.js')
-    Object.keys(jobs).forEach(function(index){
-      global[index] = jobs[index]
-    })
-    */
+    
     /**
     * DB Setup
     */

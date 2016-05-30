@@ -107,14 +107,14 @@ module.exports = {
 				if (response.length==0) all_responses = true
 				records.push.apply(records,response) // merge response into records
 				io.sockets.emit('progress', records.length);
-				console.log("N: ", records.length)
+				//console.log("N: ", records.length)
 				return cb()
 			})
 		}, done = function(err){
 			if (err) return res.status(500).send(err)
 
-			console.log(records[0])
-			console.log("Total: ", records.length)
+			//console.log(records[0])
+			//console.log("Total: ", records.length)
 			io.sockets.emit('completed', records.length);
 			return res.status(200).json(records)
 		}
