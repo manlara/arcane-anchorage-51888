@@ -8,8 +8,8 @@ module.exports = {
 			index : function(req, res){
 
 				var description = 'Connect to InspireHEP and make make class to their REST API'
-				var title =  'Author Name Disambiguation'
-				var keywords = 'inpire, machine learning'
+				var title =  'Manuel Lara'
+				var keywords = 'inpire, nodejs'
 				var canonical = '/'
 
 				if(req.metatag){
