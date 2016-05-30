@@ -17,7 +17,7 @@ global.log = require('./lib/logger.js').init()
 _$.environment = require('./config/environment')
 
 var shell = require('shelljs');
-shell.exec(_$.environment.development ? ' echo In Developemnt ' : 'grunt --target=prod', function(code, stdout, stderr){
+shell.exec(_$.environment.development ? ' echo In Development ' : 'grunt --target=prod', function(code, stdout, stderr){
     if(code) return console.log(code)
 
     /**
@@ -129,9 +129,9 @@ shell.exec(_$.environment.development ? ' echo In Developemnt ' : 'grunt --targe
     * DB Setup
     */
 
-    //require(ROOT + '/lib/_db.js')(function(mongoose){
+    require(ROOT + '/lib/_db.js')(function(mongoose){
 
-        /*
+        
         _$.mongoose = mongoose
 
         let file = './lib/models.js'
@@ -140,7 +140,7 @@ shell.exec(_$.environment.development ? ' echo In Developemnt ' : 'grunt --targe
         if (err) return log.error(err)
 
         global.models = require('./lib/models.js')(_$.mongoose)
-        */
+        
         /**
         * Repository Setup
         */
@@ -176,5 +176,5 @@ shell.exec(_$.environment.development ? ' echo In Developemnt ' : 'grunt --targe
                 global.io = require('socket.io')(_$.server)
             })
         })  
-    //})
+    })
 })
